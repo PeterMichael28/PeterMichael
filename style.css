@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+    --animate-duration: 2s;
+    --animate-delay: 1s;
+    --animate-repeat: 1;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat';
+}
+.sec-title {
+    text-align: center;
+    color: gold;
+    font-size: 2.5rem;
+    margin: 1rem auto 1.5rem;
+}
+.sec-t {
+    margin: 2rem auto;
+}
+.sec-p {
+    padding: 0 1rem;
+}
+body{
+    background-color: black;
+    color: white;
+}
+
+/*header section*/
+header {
+    width: 100%;
+    margin: 0;
+}
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header {
+    min-height: 8vh;
+    background-color: transparent;
+    transition: .4s ease background-color;
+}
+#header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+}
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow-x: hidden;
+    flex-direction: column;
+    transition: .5s ease left;
+}
+#header .nav-list ul.active {
+    left: 0;
+}
+
+#header .nav-list ul a {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing:  .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(255, 255, 255, .7);
+    font-size: 8rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .5s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(.7);
+    letter-spacing: 2px;
+}
+#header .nav-list ul li:hover a{
+    color: gold;
+}
+
+#header .hamb {
+    z-index: 100;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px white solid;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: scale(.7);
+    margin-right: 20px;
+}
+#header .hamb::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamb-pulse 1s ease infinite;
+}
+#header .hamb .bar {
+    height: 2px;
+    width: 30px;
+    background-color: white;
+    z-index: -1;
+    position: relative;
+}
+#header .hamb .bar::after,
+#header .hamb .bar::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamb .bar::after {
+    top: 8px;
+}
+#header .hamb .bar::before {
+    bottom: 8px;
+}
+#header .hamb.active .bar::after {
+    top: 0;
+}
+#header .hamb.active .bar::before {
+    bottom: 0;
+}
+.brand a {
+    position: relative;
+    z-index: 10;
+    color: gold;
+}
+.brand a h1 em {
+    color: gold;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.7rem;
+}
+
+@keyframes hamb-pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+
+/*main section*/
+/*hero section*/
+#hero {
+    display: flex;
+    background-color: rgba(0, 0, 0, .8);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/pic4.avif') center/cover no-repeat;
+    z-index: -1;
+}
+#hero span {
+    font-size: 1.4rem;
+    margin: 0 auto .8rem;
+}
+#hero h1 {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    line-height: .8;
+    color: gold;
+}
+#hero h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+#hero h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.socials {
+    margin: 0 auto;
+}
+.socials i{
+    font-size: 1.3rem;
+    margin: 0 2px;
+    transition: .5s ease all;
+}
+.socials i:hover{
+    color: gold;
+    transform: scale(1.3);
+}
+
+.btns {
+    margin: 1.5rem auto;
+}
+.btns a {
+    padding: .7rem 2.3rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 3px;
+    border: 1px solid white;
+    cursor: pointer;
+    
+}
+.btn-black {
+    transition: .4s ease all;
+    border: 1px solid white;
+}
+.btn-yellow {
+    background-color: gold;
+    color: black;
+    /* border: 1px solid gold; */
+    border: none;
+    transition: .4s ease all;
+    outline: none;
+}
+.btns .btn-yellow:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.btn-black:hover {
+    background-color: gold;
+    color: black;
+    border: 1px solid gold;
+}
+
+/*projects*/
+
+#projects .pro {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%; 
+    margin: 1rem 0 1.5rem;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+}
+.pro-img {
+    width: 100%;
+    margin: 1rem auto 0;
+    transition: .4s ease all;
+}
+.pro-img:hover {
+    transform: scale(1.03);
+}
+.pro-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+a.btn-sm {
+    padding: .7rem 1.3rem;
+    border: 1px solid white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.see-more {
+    font-size: 1rem;
+    color: gold;
+    cursor: pointer;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gold;
+}
+.pro-texts p {
+    font-size: .8rem;
+}
+
+/*footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+footer p {
+    margin: .5rem auto 0;
+    font-size: .75rem;
+}
+
+
+@media only screen and (min-width:560px) {
+    .sec-t {
+        margin: 2rem auto;
+    }
+    .sec-p {
+        padding: .4rem 2rem;
+    }
+/*hero section*/
+#hero span {
+    font-size: 1.2rem;
+    margin: 0 auto .8rem;
+}
+#hero h1 {
+    font-size: 5rem;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+    line-height: .7;
+}
+#hero h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+#hero h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+}
+#projects .pro {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%; 
+    margin: 1rem 0 3rem;
+}
+.pro-img {
+    width: 40%;
+    margin: 1rem auto 0;
+    height: 300px;
+}
+.pro-img img{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+}
+.pro-texts {
+    width: 40%;
+    padding: 1rem ;
+    line-height: 1.4;
+}
+/* .pro-texts p {
+    font-size: .5rem;
+} */
+.see-more {
+    font-size: 1.2rem;
+    color: gold;
+    cursor: pointer;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gold;
+    margin-left: 1rem;
+}
+}
+
+
+@media only screen and (min-width:1200px) {
+
+    .sec-t {
+        margin: 2rem auto;
+    }
+
+/*for header*/
+#header .hamb {
+    display: none;
+}
+#header .nav-list {
+    margin-left: auto;
+}
+#header .nav-list ul li {
+    display: inline-block;
+}
+#header .nav-list ul li a{
+    font-size: 1.4rem;
+}
+#header .nav-list ul {
+    position: initial;
+    display: block;
+    height: auto;
+    width: 100%;
+    background-color: transparent;
+    margin-left: auto;
+}
+
+#header .nav-list ul a::after {
+    display: none;
+}
+#header .nav-bar {
+    padding: 0 4rem;
+}
+
+/*hero section*/
+#hero span {
+    font-size: 1.2rem;
+    margin: 0 auto .8rem;
+}
+#hero h1 {
+    font-size: 6rem;
+    letter-spacing: 2px;
+    margin: 8px 0;
+    padding: 0;
+    line-height: .7;
+}
+#hero h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+#hero h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+}
+.pro-con {
+    padding: 0 5rem;
+}
+
+}
