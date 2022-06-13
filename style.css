@@ -90,22 +90,7 @@ header {
     padding: 20px;
     display: block;
 }
-#header .nav-list ul a::after {
-    content: attr(data-after);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    color: rgba(255, 255, 255, .7);
-    font-size: 8rem;
-    letter-spacing: 50px;
-    z-index: -1;
-    transition: .5s ease letter-spacing;
-}
-#header .nav-list ul li:hover a::after {
-    transform: translate(-50%, -50%) scale(.7);
-    letter-spacing: 2px;
-}
+
 #header .nav-list ul li:hover a{
     color: gold;
 }
@@ -250,9 +235,8 @@ header {
 .btns a {
     padding: .7rem 2.3rem;
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0 3px;
-    border: 1px solid white;
     cursor: pointer;
     
 }
@@ -263,13 +247,13 @@ header {
 .btn-yellow {
     background-color: gold;
     color: black;
-    /* border: 1px solid gold; */
+    border: 1px solid gold;
     border: none;
     transition: .4s ease all;
     outline: none;
 }
 .btns .btn-yellow:hover {
-    background-color: black;
+    background-color: transparent;
     color: white;
     border: 1px solid white;
 }
@@ -303,7 +287,6 @@ header {
 }
 a.btn-sm {
     padding: .7rem 1.3rem;
-    border: 1px solid white;
     font-size: 1.1rem;
     font-weight: 600;
 }
@@ -316,6 +299,7 @@ a.btn-sm {
 }
 .pro-texts p {
     font-size: .8rem;
+    margin: 7px 0;
 }
 
 /*footer*/
@@ -382,9 +366,9 @@ footer p {
     padding: 1rem ;
     line-height: 1.4;
 }
-/* .pro-texts p {
-    font-size: .5rem;
-} */
+.pro-texts p {
+    /* margin: 10px 0; */
+}
 .see-more {
     font-size: 1.2rem;
     color: gold;
